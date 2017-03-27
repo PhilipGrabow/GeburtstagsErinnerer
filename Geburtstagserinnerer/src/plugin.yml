@@ -1,0 +1,13 @@
+name: GeburtstagErinnerer
+version: 0.1
+author: PhilipGrabow
+
+main: de.philipgrabow.birthdaynotify.Main
+
+commands:
+  birthday:
+    description: Zeigt deinen Geburtstag
+    usage: /<command> [Player]
+  setbirthday:
+    description: Setzt den Geburtstag
+    usage: /<command> [Player] [Datum]
