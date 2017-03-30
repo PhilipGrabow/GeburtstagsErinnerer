@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -42,7 +43,7 @@ public class Command_Birthday_Set implements CommandExecutor {
 				if (args.length == 1) {
 					FileConfiguration cfg = YamlConfiguration.loadConfiguration(uidfile);
 					if (cfg.contains(args[0])) {
-						Player p2 = Bukkit.getPlayer(UUID.fromString(args[0] + ".UUID"));
+						OfflinePlayer p2 = Bukkit.getOfflinePlayer(UUID.fromString(args[0] + ".UUID"));
 						Player p = (Player) sender;
 						String pathday = p2.getUniqueId().toString() + ".Geburtstag.Datum";
 						FileConfiguration cfg2 = YamlConfiguration.loadConfiguration(file);
@@ -74,7 +75,7 @@ public class Command_Birthday_Set implements CommandExecutor {
 					FileConfiguration uidcfg = YamlConfiguration.loadConfiguration(uidfile);
 					FileConfiguration cfg = YamlConfiguration.loadConfiguration(file);
 					if(uidcfg.contains(args[0])) {
-						Player p2 = Bukkit.getPlayer(UUID.fromString(uidcfg.getString(args[0] + ".UUID")));
+						OfflinePlayer p2 = Bukkit.getOfflinePlayer(UUID.fromString(uidcfg.getString(args[0] + ".UUID")));
 						if(cfg.contains(p2.getUniqueId().toString())) {
 							p.sendMessage(ChatColor.RED + "Dein Geburtstag ist"
 									+ " schon vorhanden wird somit überschrieben!");
