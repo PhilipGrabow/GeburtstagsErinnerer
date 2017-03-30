@@ -43,7 +43,7 @@ public class Command_Birthday_Set implements CommandExecutor {
 				if (args.length == 1) {
 					FileConfiguration cfg = YamlConfiguration.loadConfiguration(uidfile);
 					if (cfg.contains(args[0])) {
-						OfflinePlayer p2 = Bukkit.getOfflinePlayer(UUID.fromString(args[0] + ".UUID"));
+						OfflinePlayer p2 = Bukkit.getOfflinePlayer(UUID.fromString(cfg.getString(args[0] + ".UUID")));
 						Player p = (Player) sender;
 						String pathday = p2.getUniqueId().toString() + ".Geburtstag.Datum";
 						FileConfiguration cfg2 = YamlConfiguration.loadConfiguration(file);
